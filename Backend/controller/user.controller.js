@@ -18,7 +18,7 @@ export const signup = async(req, res)=>{
           fullname,
           email,
           password: hashPassword,
-        });
+        });    
         await newUser.save();
         if(newUser){
             createTokenAndSaveCookie(newUser._id, res)
