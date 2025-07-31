@@ -8,9 +8,7 @@ export const sendMessage = async(req,res)=>{
         const {message}=req.body;
         const {id:receiverId}=req.params
         const senderId=req.user._id;  //current logged in user
-        if (!message) {
-            return res.status(400).json({ error: "Message is required" });
-        }
+       
         let conversation = await Conversation.findOne({
             members:{ $all: [senderId,receiverId] },
         });
@@ -59,3 +57,4 @@ export const getMessage = async(req,res) => {
         res.status(500).json({error : "Internal server error"});
     }
 };
+
