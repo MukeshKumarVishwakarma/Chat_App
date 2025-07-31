@@ -78,3 +78,5 @@ export const allUsers=async(req, res)=>{
         console.log("Error in allUsers Controller: "+error);
     }
 }
+
+
